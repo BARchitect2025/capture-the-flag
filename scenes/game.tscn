@@ -98,9 +98,12 @@ flag_type = 1
 [node name="Players" type="Node" parent="." unique_id=636443589]
 
 [node name="Player" parent="Players" unique_id=1174248984 instance=ExtResource("6_kvpfn")]
+collision_layer = 3
+collision_mask = 3
 
 [node name="Camera2D" type="Camera2D" parent="Players/Player" unique_id=345972546]
 zoom = Vector2(4, 4)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1471277010]
+visible = false
 color = Color(0, 0, 0, 1)

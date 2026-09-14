@@ -91,13 +91,13 @@ func _physics_process(delta: float) -> void:
 		if weapon == Weapon.SUBMACHINEGUN:
 			var target = $RayCast2D.get_collider()
 			if target && target is not TileMapLayer && target.has_method("damage"):
-				target.damage(5, global_position)
+				target.damage(10, global_position)
 			$Timer.start(0.05)
 		if weapon == Weapon.SNIPER:
 			var target = $RayCast2D.get_collider()
 			if target && target is not TileMapLayer && target.has_method("damage"):
 				target.damage(100, global_position)
-			$Timer.start(2.0)
+			$Timer.start(1.5)
 		
 		shooting = true
 	
