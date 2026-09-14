@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b7rulv0vf7bio"]
+
+[ext_resource type="Texture2D" uid="uid://dpmlufrwhun1c" path="res://assets/players.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://bkeltkcaxvear" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b550od3ehc40s" path="res://assets/weapons.png" id="3_qhqgy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("1_3vyb7")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2els")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(0, 0, 8, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(8, 0, 8, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(0, 2, 8, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("3_qhqgy")
+region = Rect2(8, 2, 8, 2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_smehm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjrip")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_ur7pv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.33287108), -1.8932047, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_y4r1p"]
+offsets = PackedFloat32Array(0, 0.69402987)
+colors = PackedColorArray(0.89794517, 0.21147096, 1.92523e-07, 1, 0.33660764, 0.3366076, 0.3366076, 1)
+
+[sub_resource type="Gradient" id="Gradient_j6jue"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qhqgy"]
+gradient = SubResource("Gradient_j6jue")
+width = 192
+height = 192
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.491453, 0)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_qhqgy"]
+
+[node name="Player" type="CharacterBody2D" unique_id=1174248984]
+script = ExtResource("1_g2els")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1632234896]
+sprite_frames = SubResource("SpriteFrames_dqkch")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1103523796]
+shape = SubResource("CircleShape2D_qlg0r")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=600793570]
+target_position = Vector2(256, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=1663355036]
+
+[node name="Gun" type="AnimatedSprite2D" parent="." unique_id=1896226871]
+position = Vector2(8, 0)
+sprite_frames = SubResource("SpriteFrames_smehm")
+
+[node name="Smoke" type="CPUParticles2D" parent="Gun" unique_id=714175894]
+position = Vector2(0.5, 0)
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
+scale_amount_min = 0.75
+scale_amount_curve = SubResource("Curve_ur7pv")
+color_ramp = SubResource("Gradient_y4r1p")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1816063008]
+texture = SubResource("GradientTexture2D_qhqgy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=155224440]
+replication_config = SubResource("SceneReplicationConfig_qhqgy")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

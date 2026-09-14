@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c3wpyt0sasnpn"]
+
+[node name="Menu" type="Node" unique_id=1714084361]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1931737255]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1460165956]
+offset_right = 8.0
+offset_bottom = 8.0

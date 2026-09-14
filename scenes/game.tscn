@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://b0ts10gfky34v"]
+
+[ext_resource type="PackedScene" uid="uid://cjchb174wb6pn" path="res://scenes/background.res" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dswb0wnmxwiwk" path="res://scenes/foreground.res" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://06u52gcwhs10" path="res://scenes/barrel.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://dna14mtblycss" path="res://scenes/box.tscn" id="4_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://jipc4t454244" path="res://scenes/flag.tscn" id="5_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b7rulv0vf7bio" path="res://scenes/player.tscn" id="6_kvpfn"]
+
+[node name="Game" type="Node2D" unique_id=465611219]
+
+[node name="Background" parent="." unique_id=1871384384 instance=ExtResource("1_p57ef")]
+
+[node name="Foreground" parent="." unique_id=1313526892 instance=ExtResource("2_p57ef")]
+
+[node name="Barrels" type="Node" parent="." unique_id=690310321]
+
+[node name="Barrel" parent="Barrels" unique_id=1442231293 instance=ExtResource("3_gee14")]
+position = Vector2(-308, -76)
+
+[node name="Barrel2" parent="Barrels" unique_id=149849566 instance=ExtResource("3_gee14")]
+position = Vector2(-324, 228)
+
+[node name="Barrel3" parent="Barrels" unique_id=85232853 instance=ExtResource("3_gee14")]
+position = Vector2(-316, 236)
+
+[node name="Barrel4" parent="Barrels" unique_id=386383799 instance=ExtResource("3_gee14")]
+position = Vector2(-308, 228)
+
+[node name="Barrel5" parent="Barrels" unique_id=1973783882 instance=ExtResource("3_gee14")]
+position = Vector2(-300, 236)
+
+[node name="Barrel6" parent="Barrels" unique_id=738015520 instance=ExtResource("3_gee14")]
+position = Vector2(-284, 228)
+
+[node name="Barrel7" parent="Barrels" unique_id=119755486 instance=ExtResource("3_gee14")]
+position = Vector2(-300, 228)
+
+[node name="Barrel8" parent="Barrels" unique_id=40175079 instance=ExtResource("3_gee14")]
+position = Vector2(-28, 4)
+
+[node name="Barrel9" parent="Barrels" unique_id=1491686 instance=ExtResource("3_gee14")]
+position = Vector2(-36, -4)
+
+[node name="Barrel10" parent="Barrels" unique_id=125458927 instance=ExtResource("3_gee14")]
+position = Vector2(-44, 4)
+
+[node name="Barrel11" parent="Barrels" unique_id=895881546 instance=ExtResource("3_gee14")]
+position = Vector2(44, -4)
+
+[node name="Boxes" type="Node" parent="." unique_id=828555839]
+
+[node name="Box13" parent="Boxes" unique_id=532845923 instance=ExtResource("4_0tnpc")]
+position = Vector2(36, -4)
+
+[node name="Box" parent="Boxes" unique_id=1139512828 instance=ExtResource("4_0tnpc")]
+position = Vector2(356, -36)
+
+[node name="Box2" parent="Boxes" unique_id=1220130708 instance=ExtResource("4_0tnpc")]
+position = Vector2(-172, -156)
+
+[node name="Box3" parent="Boxes" unique_id=545216945 instance=ExtResource("4_0tnpc")]
+position = Vector2(-380, -148)
+
+[node name="Box4" parent="Boxes" unique_id=436642897 instance=ExtResource("4_0tnpc")]
+position = Vector2(-284, 220)
+
+[node name="Box5" parent="Boxes" unique_id=1412105873 instance=ExtResource("4_0tnpc")]
+position = Vector2(-308, 236)
+
+[node name="Box6" parent="Boxes" unique_id=195526791 instance=ExtResource("4_0tnpc")]
+position = Vector2(-316, 228)
+
+[node name="Box7" parent="Boxes" unique_id=444829543 instance=ExtResource("4_0tnpc")]
+position = Vector2(-292, 228)
+
+[node name="Box8" parent="Boxes" unique_id=1176986403 instance=ExtResource("4_0tnpc")]
+position = Vector2(-308, 220)
+
+[node name="Box9" parent="Boxes" unique_id=839869337 instance=ExtResource("4_0tnpc")]
+position = Vector2(-300, 220)
+
+[node name="Box11" parent="Boxes" unique_id=1214585946 instance=ExtResource("4_0tnpc")]
+position = Vector2(-36, 4)
+
+[node name="Box12" parent="Boxes" unique_id=1899995654 instance=ExtResource("4_0tnpc")]
+position = Vector2(-28, -4)
+
+[node name="Flags" type="Node" parent="." unique_id=457091634]
+
+[node name="Flag" parent="Flags" unique_id=623108352 instance=ExtResource("5_vtaks")]
+position = Vector2(-428, -172)
+
+[node name="Flag2" parent="Flags" unique_id=2065185028 instance=ExtResource("5_vtaks")]
+position = Vector2(468, -292)
+flag_type = 1
+
+[node name="Players" type="Node" parent="." unique_id=636443589]
+
+[node name="Player" parent="Players" unique_id=1174248984 instance=ExtResource("6_kvpfn")]
+
+[node name="Camera2D" type="Camera2D" parent="Players/Player" unique_id=345972546]
+zoom = Vector2(4, 4)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1471277010]
+color = Color(0, 0, 0, 1)
